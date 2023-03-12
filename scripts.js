@@ -9,7 +9,7 @@ let viewMovie = () =>{
     let url = `http://www.omdbapi.com/?t=${movie}&apikey=${apiKey}`;
 
     if(movie.length <= 0){
-       results.innerHTML = `<h3 id="empt">Digite um filme Válido</h3>`;
+       results.innerHTML = `<h3 id="empt">Digite um filme</h3>`;
     }
     else{
         fetch(url).then((res)=>res.json()).then((data)=>{
@@ -35,14 +35,19 @@ let viewMovie = () =>{
                         <div>${data.Genre.split(",").join("</div><div>")}</div>
                     </div>
                 </div>
+                </div>
                 <h3>Sinópse:</h3>
                 <p>${data.Plot}</p>
                 <h3>Elenco:</h3>
-                <p>${data.Actors}</p>
+                <p>${data.Actors}.</p>
                 `
             }
         })
     }
 }
-
+document.addEventListener('keypress', function(e){
+    if(e.key === "Enter"){
+       viewMovie();
+    }
+ }, false);
 btn.addEventListener('click', viewMovie);
