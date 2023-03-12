@@ -36,7 +36,7 @@ let viewMovie = () =>{
                     </div>
                 </div>
                 </div>
-                <h3>Sinópse:</h3>
+                <h3>Sinopse:</h3>
                 <p>${data.Plot}</p>
                 <h3>Elenco:</h3>
                 <p>${data.Actors}.</p>
